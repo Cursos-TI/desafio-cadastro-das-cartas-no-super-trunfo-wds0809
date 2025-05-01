@@ -12,11 +12,15 @@ int main() {
 
     char estadoC1;
     char estadoC2;
-    char codCartaC1[10], codCartaC2[10]; // Código das cartas (ex: 01, 02, etc.)
-    char nomeC1[50], nomeC2[50]; // Nome das cidades
+    char codCartaC1[10];
+    char codCartaC2[10]; // Código das cartas (ex: 01, 02, etc.)
+    char nomeC1[50]; // Nome da cidade C1
+    char nomeC2[50]; // Nome da cidade C2
     int populacaoC1, nPontosC1, populacaoC2, nPontosC2; // Valores inteiros das cidades
     float areaC1, pibC1, areaC2, pibC2; // Valores decimais: área e PIB
-    
+    float densidadeC1, densidadeC2;
+    float pibPerCapitaC1, pibPerCapitaC2;
+     
     printf ("Digite uma letra de A a H para representação de um estado para Carta 1: \n");
     scanf (" %c", &estadoC1); // O espaço antes do %c evita problemas com \n no buffer
 
@@ -32,9 +36,15 @@ int main() {
     printf ("Digite a área total da cidade: \n");
     scanf ("%f", &areaC1);
 
+    // Densidade Populacional Carta 1
+    densidadeC1 = populacaoC1 / areaC1;
+    
     printf ("Digite o PIB da cidade: \n");
     scanf ("%f", &pibC1);
 
+    // Pib per Capita Carta 1
+    pibPerCapitaC1 = (pibC1 * 1000000000) / populacaoC1; //Para usar PIB em bilhões e calcular corretamente, multiplique por 1.000.000.000 no cálculo
+    
     printf ("Digite quantos pontos turísticos existe na cidade: \n");
     scanf ("%d", &nPontosC1);
 
@@ -53,8 +63,14 @@ int main() {
     printf ("Digite a área total da cidade: \n");
     scanf ("%f", &areaC2);
 
+    // Densidade Populacional Carta 1
+    densidadeC2 = populacaoC2 / areaC2;
+
     printf ("Digite o PIB da cidade: \n");
     scanf ("%f", &pibC2);
+
+    // Pib per Capita Carta 2
+    pibPerCapitaC2 = (pibC2 * 1000000000) / populacaoC2; //Para usar PIB em bilhões e calcular corretamente, multiplique por 1.000.000.000 no cálculo
 
     printf ("Digite quantos pontos turísticos existe na cidade: \n");
     scanf ("%d", &nPontosC2);
@@ -69,6 +85,8 @@ int main() {
     printf("Área: %.2f km²\n", areaC1); // Usa %.2f para mostrar 2 casas decimais.
     printf("PIB: %.2f bilhões de reais\n", pibC1); // Usa %.2f para mostrar 2 casas decimais.
     printf("Número de Pontos Turísticos: %d\n", nPontosC1);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadeC1);
+    printf("PIB per Capita: %.2f reais", pibPerCapitaC1);
 
     printf("\n--- Carta 2 ---\n");
     printf("Estado: %c\n", estadoC2);
@@ -78,6 +96,8 @@ int main() {
     printf("Área: %.2f km²\n", areaC2); // Usa %.2f para mostrar 2 casas decimais
     printf("PIB: %.2f bilhões de reais\n", pibC2); // Usa %.2f para mostrar 2 casas decimais
     printf("Número de Pontos Turísticos: %d\n", nPontosC2);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadeC2);
+    printf("PIB per Capita: %.2f reais", pibPerCapitaC2);
 
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
